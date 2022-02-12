@@ -1,3 +1,0 @@
-output.logstash:
-  hosts: ["logstash:5044"]
-
