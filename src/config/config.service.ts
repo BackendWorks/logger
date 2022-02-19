@@ -8,7 +8,6 @@ if (process.env.NODE_ENV) {
 }
 config({ path: envPath });
 import { Injectable } from '@nestjs/common';
-
 @Injectable()
 export class ConfigService {
   private config: { [key: string]: any } = {};

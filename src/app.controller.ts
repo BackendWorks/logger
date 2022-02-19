@@ -4,24 +4,26 @@ import { AppService } from './app.service';
 
 @Controller()
 export class AppController {
-  constructor(private readonly appService: AppService) {}
+  constructor(private readonly appService: AppService) {
+    this.appService.logger.info('Logger controller successfully started!');
+  }
 
-  @EventPattern('logger_info')
+  @EventPattern('info')
   public loggerInfo(@Payload() payload): void {
     this.appService.logger.info(payload);
   }
 
-  @EventPattern('logger_debug')
+  @EventPattern('debug')
   public loggerDebug(@Payload() payload): void {
     this.appService.logger.debug(payload);
   }
 
-  @EventPattern('logger_error')
+  @EventPattern('error')
   public loggerError(@Payload() payload): void {
     this.appService.logger.error(payload);
   }
 
-  @EventPattern('logger_warn')
+  @EventPattern('warn')
   public loggerWarn(@Payload() payload): void {
     this.appService.logger.warn(payload);
   }

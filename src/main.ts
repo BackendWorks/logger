@@ -5,7 +5,6 @@ import { ConfigService } from './config/config.service';
 import { MicroserviceOptions, Transport } from '@nestjs/microservices';
 import { Logger } from '@nestjs/common';
 
-
 async function bootstrap() {
   const configService = new ConfigService();
   const logger = new Logger();
