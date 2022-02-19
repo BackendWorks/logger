@@ -9,22 +9,26 @@ export class AppController {
   }
 
   @EventPattern('info')
-  public loggerInfo(@Payload() payload): void {
-    this.appService.logger.info(payload);
+  public loggerInfo(@Payload() data): void {
+    const log = JSON.parse(data);
+    this.appService.logger.info(log.message);
   }
 
   @EventPattern('debug')
-  public loggerDebug(@Payload() payload): void {
-    this.appService.logger.debug(payload);
+  public loggerDebug(@Payload() data): void {
+    const log = JSON.parse(data);
+    this.appService.logger.debug(log.message);
   }
 
   @EventPattern('error')
-  public loggerError(@Payload() payload): void {
-    this.appService.logger.error(payload);
+  public loggerError(@Payload() data): void {
+    const log = JSON.parse(data);
+    this.appService.logger.error(log.message);
   }
 
   @EventPattern('warn')
-  public loggerWarn(@Payload() payload): void {
-    this.appService.logger.warn(payload);
+  public loggerWarn(@Payload() data): void {
+    const log = JSON.parse(data);
+    this.appService.logger.warn(log.message);
   }
 }
